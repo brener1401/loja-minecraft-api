@@ -7,7 +7,7 @@ app.use(express.json()) // Permite receber JSON
 // ====== CONFIG BOT MINECRAFT ======
 const bot = mineflayer.createBot({
   host: 'bawmc.net',
-  port: 19132, // troque se o servidor usar outra
+  port: 25565, // troque se o servidor usar outra
   username: 'BawSHOP',
   version: false
 })
