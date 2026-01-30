@@ -72,10 +72,11 @@ app.post('/webhook/olivery', (req, res) => {
     return res.sendStatus(200)
   }
 
-  if (!bot.player) {
-    console.log("🤖 Bot offline, não entregou")
-    return res.sendStatus(500)
-  }
+  if (!bot.entity) {
+  console.log("🤖 Bot ainda não spawnou")
+  return res.sendStatus(503)
+}
+
 
   entregasProcessadas.add(vendaID)
 
