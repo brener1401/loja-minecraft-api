@@ -30,3 +30,21 @@ app.post('/pagamento-confirmado', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`)
 })
+
+app.post('/webhook/olivery', (req, res) => {
+  const data = req.body
+
+  console.log("Pagamento recebido do Olivery:", data)
+
+  const player = data.player_name // nome do jogador
+  const produto = data.product_name // tipo "5M", "10M"
+
+  if (!player || !produto) {
+    return res.status(400).send("Dados inválidos")
+  }
+
+  // Aqui no futuro vamos mandar pro bot do Minecraft
+  console.log(`Entregar ${produto} para ${player}`)
+
+  res.sendStatus(200)
+})
