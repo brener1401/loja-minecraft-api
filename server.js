@@ -3,7 +3,7 @@ const app = express()
 
 app.use(express.json()) // Permite receber JSON
 
-const PORT = 3000
+
 
 // Rota teste
 app.get('/', (req, res) => {
@@ -25,10 +25,7 @@ app.post('/pagamento-confirmado', (req, res) => {
   // Aqui depois vamos mandar pro bot do Minecraft
 
   res.send('Entrega registrada com sucesso!')
-})
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`)
+  
 })
 
 app.post('/webhook/olivery', (req, res) => {
@@ -47,4 +44,10 @@ app.post('/webhook/olivery', (req, res) => {
   console.log(`Entregar ${produto} para ${player}`)
 
   res.sendStatus(200)
+})
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`)
 })
